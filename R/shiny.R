@@ -61,7 +61,7 @@ toJSON <- function(x, ...,  dataframe = "columns", null = "null", na = "null",
 # URL or read a file from disk. We don't want to allow that.
 safeFromJSON <- function(txt, ...) {
   if (!jsonlite::validate(txt)) {
-    stop("Argument 'txt' is not a valid JSON string.")
+    stop(sprintf("Argument 'txt' is not a valid JSON string: %s", txt))
   }
   jsonlite::fromJSON(txt, ...)
 }
